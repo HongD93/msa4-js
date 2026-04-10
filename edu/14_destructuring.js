@@ -7,3 +7,17 @@ const arr = [1, 2, 3, 4 ,5];
 // const [val1, val2, val3, val4, val5] = arr;
 // const [val1, , ,  , val5] = arr;
 const [val,val2] = console.error();
+
+// -------------------------
+const user = {
+  name: '홍길동',
+  age: 20,
+  gender: 'M',
+  addr: '서울시',
+  info: {
+    board: 1,
+  }
+}
+const age = 0;
+const { age: userAge, gender, addr = '없음', info } = user;
+console.log(addr);

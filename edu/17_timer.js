@@ -19,3 +19,14 @@ console.log(timeoutID1);
 
 // clearTimeout(timeoutID),
 clearTimeout(timeoutID1);
+
+// setInterval(cb, ms[, ...args]): number
+// 설정한 일정 시간마다 콜백함수를 실행
+// 반환값은 intervalID로 0이아닌 정수값 (해당 인터벌의 고유한 식별값)
+const intervalId1 = setInterval(() => {
+  console.log('인터벌');
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(intervalId1);
+}, 5000);

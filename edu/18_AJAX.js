@@ -1,7 +1,7 @@
 const url = 'https://picsum.photos/v2/list?page=2&limit=10';
 
 const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const baseUrl = 'https://picsum.photos/v2/list';
   const page = form.page.value;
@@ -9,8 +9,9 @@ form.addEventListener('submit', (e) => {
 
   const url = `${baseUrl}?page=${page}&limit=${limit}`;
 
-  axios.get(url)
-  .then(response => {
+  try{
+    const response = await axios.get(url);
+
     console.log(response);
     // 카드를 넣을 컨테이너
     const container = document.querySelector('.container')
@@ -36,10 +37,9 @@ form.addEventListener('submit', (e) => {
       // 컨테이너에 카드 삽입
       container.appendChild(newCard);
     });
-  })
-  .catch(error => {
-    console.error(error);
-  });
+  } catch(error) {
+    console.log(error);
+  }
 });
 
 // const btnSearch = document.querySelector('#btnSearch');
